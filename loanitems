@@ -1,0 +1,69 @@
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+class loanItems {
+private:
+	std::string itemId, itemTitle, itemAuthor, itemCategory, itemType;
+	loanItems() {
+	}
+
+	void registerItemDetails(std::string uniqueId, std::string title, std::string author, std::string category, std::string type) {
+		itemId = uniqueId;
+		itemTitle = title;
+		itemAuthor = author;
+		itemCategory = category;
+		itemType = type;
+	}
+
+	void loanItem() {
+		std::cout << "Title: ";
+	}
+};
+
+int main() {
+	std::string uniqueId, title, author, category, type;
+	int serviceSystem;
+	ofstream openFile;
+	std::cout << ("Welcome to ESPM Library Service.\n");
+	std::cout << ("Would you like to register a new item (1) or make a loan (2)? ");
+	std::cin >> serviceSystem;
+
+	switch (serviceSystem) {
+
+	case 1:
+		std::cout << ("Please input the items details") << std::endl;
+		std::cout << ("Unique Id: ");
+		std:cin >> uniqueId;
+		std:string path = "C:/Users/3168/source/repos/Project1/Project1/items/" + uniqueId + ".txt";
+		/// writint to file
+		//openFile.open("C:/Users/3168/source/repos/Project1/Project1/items/item0001.txt");
+		openFile.open(path);
+		openFile << "HI";
+		//------------------
+
+		
+		std::cout << ("Title: ");
+		std::cin >> title;
+		std::cout << ("Author: ");
+		std::cin >> author;
+		std::cout << ("Subject category: ");
+		std::cin >> category;
+		std::cout << ("Media type: ");
+		std::cin >> type;
+		//---------------
+		openFile.close();
+		//---------------
+		break;
+
+	case 2:
+		std::cout << ("Inform the Unique Id of the item: ");
+		std::cin >> uniqueId;
+		break;
+
+	default:
+		std::cout << ("ERROR: Option not available.");
+		break;
+	}
+}
