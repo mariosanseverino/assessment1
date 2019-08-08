@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Circle
+{
+public:
+	double radius, circumference = 0, diameter = 0, pi = 3.14;
+	Circle() {
+		radius = 1;
+	}
+	void setRadius(float radius) {
+		this -> radius = radius;
+	}
+	double getRadius() {
+		return radius;
+	}
+	double getDiameter() {
+		diameter = radius * 2;
+		return diameter;
+	}
+	double getCircumference(double diameter) {
+		circumference = diameter * pi;
+		return circumference;
+	}
+};
+
+int main() {
+	Circle c;
+	cout << c.getRadius() << endl;
+	c.setRadius(10);
+	cout << c.getRadius() << endl;
+	cout << c.getDiameter() << endl;
+	cout << c.getCircumference(c.getDiameter());
+	return 0;
+}
