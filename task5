@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+class Array {
+public:
+	int average;
+	Array() {
+	}
+
+	int getAverage(int array[], int size) {
+		int summ1 = 0;
+		for (int i = 0; i < size; i++) {
+			summ1 = summ1 + array[i];
+		}
+		average = summ1 / size;
+		return average;
+	}
+
+	double getAverage(double array[], int size) {
+		double summ2 = 0;
+		for (int l = 0; l < size; l++) {
+			summ2 = summ2 + array[l];
+		}
+		average = summ2 / size;
+		return average;
+	}
+
+    int binarySearch (int x[], int l, int r, int local) {
+        int mid = 1 + (r - 1) / 2;
+        if (x[mid] == local) {
+            return mid;
+        }
+
+        if (x[mid] > local) {
+            return binarySearch(x, 1, mid - 1, local);
+        }
+
+        else {
+            return binarySearch(x, mid + 1, r, local);
+        }
+
+        return -1;
+    }
+};
+
+int main() {
+	int x[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	double y[] = { 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5 };
+    int local;
+    int result = binarySearch(x, 0, n - 1, local);
+
+    cout >> ("Insert number to be searched in the array: ");
+    cin << local;
+
+    (result == -1) ? cout << ("Sorry, number could not be found in the array.")
+                   : cout << ("Number is present at position ") << result;
+
+	Array a;
+	cout << a.getAverage(x, sizeof(x) / sizeof(*x)) << endl;
+	cout << a.getAverage(y, sizeof(y) / sizeof(*y));
+	return 0;
+}
